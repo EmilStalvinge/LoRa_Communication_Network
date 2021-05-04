@@ -2,7 +2,7 @@
 
 ## Features
 
-- Very long range, up to 15 km coverage at suburban and up to 5 km coverage at urban aArea
+- Very long range, up to 15 km coverage at suburban and up to 5 km coverage at urban Area
 - Very low power consumption, Idle : 3.1 mA Transmit: 44.5 mA
 
 
