@@ -1,0 +1,68 @@
+#define F_CPU 16000UL
+#include <avr/io.h>
+#include <util/atomic.h>
+#include <util/delay.h>
+
+//0x64 on FUSES LOW
+
+/*
+#include <stdint.h>
+
+#include <stdlib.h>
+#include <avr/interrupt.h>
+#include <stdio.h>
+#include <avr/pgmspace.h>
+#include "i2cmaster.h"
+//#include "lcd.h"
+*/
+
+uint16_t count1 =0, countshutdown =0, shutdown =0, wakeupinterval = 60*5, shutdown_delay = 30;
+
+
+
+int main(void)
+{
+	cli(); // Disable global interrupts
+	//timer1
+	TCCR1 |= ((0 << CS13) | (1 << CS12) | (1 << CS11) | (1 << CS10)); // Timer 0 prescaling - divides by 1024 */
+	TIMSK |= (1 << TOIE1);	// enable timer compare interrupt
+	DDRB |= (0 << PB0) | (1 << PB1); // Set PortB Pin0 as an input and PortB Pin1 as output
+	PORTB |= (0 << PB0) | (0 << PB1); // Set PortB Pin0 LOW
+	GIMSK |= (1<<INT0)| (1<<PCIE);	//enable external interrupt
+	PCMSK |= (1<<PCINT0);				//enable external interrupt on pin 0
+	sei(); // Enable global interrupts
+	
+	MCUCR |= (1<<ISC01) | (1<<ISC00);
+
+	while(1) { } // Don't do anything in main
+	}
+
+	ISR(TIMER1_OVF_vect) // Interrupt Service Routine
+	{		
+		count1++;		
+		if (count1 == wakeupinterval)
+		{
+			PORTB = (1 << PB1);
+			count1 = 0;
+		}		
+		if (shutdown ==1)
+		{
+			countshutdown++;
+			if (countshutdown ==shutdown_delay)
+			{
+				PORTB = (0 << PB1);
+				countshutdown =0;
+				shutdown =0;				
+			}
+		}	
+	}
+	
+	ISR(INT0_vect)  //shutdown-timer
+	{		
+		shutdown = 1;	
+	}
+	
+	ISR(PCINT0_vect) // clock sync
+	{
+		count1 = 0;			
+	}
