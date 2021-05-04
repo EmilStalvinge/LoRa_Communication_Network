@@ -1,4 +1,4 @@
-# Wireless Wide-area Low-power Long Range Autonomous Remote Wildlife Surveillance Detection Classifier System with Cloud Connectivity
+# Wireless Wide-area Low-power Autonomous Remote Wildlife Surveillance System with Cloud Storage
 
 ## Features
 
