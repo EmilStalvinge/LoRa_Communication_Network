@@ -5,9 +5,7 @@
 - Very long range, up to 15 km coverage at suburban and up to 5 km coverage at urban Area
 - Very low power consumption, Idle : 3.1 mA Transmit: 44.5 mA
 
-
-
-## System Overview 
+## System Overview
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50867974/116969966-752fed80-acb7-11eb-970d-690ac212c392.png" width="500">
@@ -33,16 +31,12 @@
 <img src="https://user-images.githubusercontent.com/50867974/116970074-998bca00-acb7-11eb-9781-a0ed60b2bf69.png" width="500">
 </p>
 
-
-## Nodes - Functional flow
-<p align="center">
-<img src="https://user-images.githubusercontent.com/50867974/116970074-998bca00-acb7-11eb-9781-a0ed60b2bf69.png" width="500">
-</p>
-
 # Nodes
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50867974/116971903-8fb79600-acba-11eb-8d11-ad1200680935.png" width="500">
 </p>
+
+# Prototypes
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50867974/116971496-f38d8f00-acb9-11eb-993b-a093b60e904b.png" width="500">
